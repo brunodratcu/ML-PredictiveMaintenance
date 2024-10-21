@@ -1,0 +1,26 @@
+from faker import Faker
+import random
+
+fake = Faker()
+
+def generate_sensor_data(num_samples):
+    data = []
+    for _ in range(num_samples):
+        sample = {
+            'timestamp': fake.date_time_this_year(),
+            'temperature': round(random.uniform(20.0, 30.0), 2)  # Temperatura entre 20.0 e 30.0 graus Celsius
+        }
+        data.append(sample)
+    return data
+
+# Gerar 10 leituras de sensor
+sensor_data = generate_sensor_data(10)
+for entry in sensor_data:
+    print(entry)
+
+
+
+PICKUP:
+Tensão de Saída: O sensor pode gerar uma tensão de saída que varia de milivolts (mV) a volts (V), dependendo da velocidade de rotação e da distância entre o sensor e o objeto metálico.
+Frequência de Pulso: Em algumas aplicações, o sensor gera pulsos elétricos cuja frequência é proporcional à velocidade de rotação do objeto. A frequência pode ser medida em Hertz (Hz).
+Contagem de Pulsos: Em sistemas de contagem, o sensor pode gerar um número de pulsos correspondente ao número de dentes ou objetos metálicos que passam pelo sensor.
